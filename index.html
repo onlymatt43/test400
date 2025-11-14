@@ -43,19 +43,10 @@ function sendBotMsg(){
 
 async function callOpenAI(msg){
   try{
-    const r = await fetch("https://api.openai.com/v1/chat/completions",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-        "Authorization":"https://TON_PROXY/ask"
-      },
-      body: JSON.stringify({
-        model:"gpt-4o-mini",
-        messages:[
-          {role:"system", content:"You are ONLYMATT’s cycle assistant. Réponds court, direct, franglais sexy."},
-          {role:"user", content: msg}
-        ]
-      })
+    const r = await fetch("https://test400.onrender.com",{
+       method: "POST",
+       headers: {"Content-Type": "application/json"},
+       body: JSON.stringify({ message: msg })
     });
 
     const data = await r.json();
